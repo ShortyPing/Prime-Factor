@@ -19,11 +19,10 @@ int main(int argc, char ** argv) {
     int number = atoi(argv[1]);
     int idx = 0;
 
-    while (number != 0) {
+    while (number != 1) {
         for(int i = number; i != 1; i--) {
             if(number % i == 0) {
                 if(is_prime(i)) {
-                    printf("%d\n", i);
                     prime_factors[idx++] = i;
                     number /= i;
                 }
@@ -32,10 +31,10 @@ int main(int argc, char ** argv) {
         }
     }
 
-    int ptr = 0;
-    while (prime_factors[ptr++] != 0) {
-        printf("%d", prime_factors[ptr-1]);
+    for(int i = 0; i < idx; i++) {
+        printf("%d ", prime_factors[i]);
     }
+    printf("\n");
 
     free(prime_factors);
 
